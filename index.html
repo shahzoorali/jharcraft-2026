@@ -95,18 +95,6 @@
   .cta-button { display: inline-block; margin-top: 2rem; padding: 1.1rem 3.5rem; border: 1px solid var(--gold); font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.4em; color: var(--gold); text-decoration: none; text-transform: uppercase; transition: all 0.4s; background: transparent; cursor: pointer; }
   .cta-button:hover { background-color: var(--gold); color: var(--obsidian); }
 
-  /* ── ACCORDION ── */
-  .collab-accordion { border: 1px solid rgba(201,168,76,0.4); background: linear-gradient(135deg, rgba(201,168,76,0.1), rgba(13,11,8,0.8)); margin-top: 3rem; transition: all 0.4s ease; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-  .collab-accordion:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201,168,76,0.15); }
-  
-  .accordion-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.8rem 2.5rem; cursor: pointer; font-family: 'Cinzel', serif; font-size: 1.2rem; letter-spacing: 0.2em; color: var(--gold-light); text-transform: uppercase; list-style: none; transition: all 0.3s; }
-  .accordion-header::-webkit-details-marker { display: none; }
-  .accordion-header span:last-child { display: flex; align-items: center; gap: 1rem; }
-  
-  .accordion-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--gold); font-size: 1.4rem; color: var(--gold); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); flex-shrink: 0; background: rgba(201,168,76,0.1); }
-  .collab-accordion[open] { background: rgba(13,11,8,0.9); border-color: var(--gold); transform: none; }
-  .collab-accordion[open] .accordion-icon { transform: rotate(135deg); background: var(--gold); color: var(--obsidian); }
-  .accordion-body { padding: 0 2.5rem 2.5rem; }
 
   /* ── LIGHTBOX ── */
   #lightbox { position: fixed; inset: 0; background: rgba(13,11,8,0.95); backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: center; justify-content: center; cursor: zoom-out; opacity: 0; transition: opacity 0.3s; }
@@ -143,7 +131,7 @@
     <h1 class="cover-title">JHARCRAFT Runway<br>Weaving the Future</h1>
     <div style="width: 100px; height: 1px; background: var(--gold); margin: 2rem auto;"></div>
     <p class="cover-subtitle">Jharkhand textiles on to the global fashion stage</p>
-    <div class="cover-meta">Ranchi · 2026 · Exclusive 1-Day Showcase</div>
+    <div class="cover-meta">Ranchi · Friday, 17 July, 2026 · Exclusive 1-Day Showcase</div>
   </div>
 </section>
 
@@ -235,57 +223,7 @@
     <h3 style="font-family: 'Cinzel', serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem;">Venues TBD</h3>
     <p class="card-desc">We are currently evaluating the most iconic locations in Ranchi for the showcase.</p>
   </div>
-
-  <!-- ACCORDION: Collaboration Jharkhand Fabric to Hyderabad -->
-  <details class="collab-accordion" style="margin-top: 3rem;">
-    <summary class="accordion-header">
-      <span>Collaboration Proposal — Jharkhand Fabric to Hyderabad</span>
-      <span class="accordion-icon">+</span>
-    </summary>
-    <div class="accordion-body">
-      <p class="slide-body" style="margin-bottom: 2rem;">
-        We propose extending JHARCRAFT's reach by showcasing Jharkhand textiles at iconic heritage venues in Hyderabad — bridging two powerful cultural legacies on one fashion stage.
-      </p>
-
-      <div class="grid-2" style="gap: 1.5rem;">
-        <!-- Venue 1: Taramati Baradari -->
-        <div class="card" style="padding:1.2rem;">
-          <div class="card-img-wrap" onclick="openLightbox(this.querySelector('img').src)" style="cursor: zoom-in;">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Taramati-Baradari.jpg/1280px-Taramati-Baradari.jpg" alt="Taramati Baradari">
-          </div>
-          <div class="card-title" style="font-size:1rem;">Taramati Baradari</div>
-          <div class="card-desc" style="font-size:0.85rem;">A 17th-century Persian-style pavilion famed for acoustic brilliance. An open-air amphitheatre carrying 400 years of artistic legacy — a perfect stage for heritage runway storytelling.</div>
-        </div>
-
-        <!-- Venue 2: Golconda Fort -->
-        <div class="card" style="padding:1.2rem;">
-          <div class="card-img-wrap" onclick="openLightbox(this.querySelector('img').src)" style="cursor: zoom-in;">
-            <img src="https://s7ap1.scene7.com/is/image/incredibleindia/golconda-fort-hyderabad-secunderabad-telangana-3-musthead-hero" alt="Golconda Fort">
-          </div>
-          <div class="card-title" style="font-size:1rem;">Golconda Fort</div>
-          <div class="card-desc" style="font-size:0.85rem;">A majestic 16th-century fortress of dramatic scale. Sweeping stone courtyards and towering ramparts create a cinematic backdrop for an opening or closing spectacle show.</div>
-        </div>
-
-        <!-- Venue 3: Chowmahalla Palace -->
-        <div class="card" style="padding:1.2rem;">
-          <div class="card-img-wrap" onclick="openLightbox(this.querySelector('img').src)" style="cursor: zoom-in;">
-            <img src="https://www.hyderabadtourism.travel/images//v2/header-places/chowmahalla-palace-hyderabad-tourism-entryfee-timings-reviews-header.jpg" alt="Chowmahalla Palace">
-          </div>
-          <div class="card-title" style="font-size:1rem;">Chowmahalla Palace</div>
-          <div class="card-desc" style="font-size:0.85rem;">The former seat of the Nizams — exuding royalty and Nawabi elegance. Symmetrical courtyards and ornate European-Deccan architecture ideal for couture presentations.</div>
-        </div>
-
-        <!-- Venue 4: Osmania University -->
-        <div class="card" style="padding:1.2rem;">
-          <div class="card-img-wrap" onclick="openLightbox(this.querySelector('img').src)" style="cursor: zoom-in;">
-            <img src="https://media.telanganatoday.com/wp-content/uploads/2024/12/OU.jpg" alt="Osmania University Arts College">
-          </div>
-          <div class="card-title" style="font-size:1rem;">Osmania University</div>
-          <div class="card-desc" style="font-size:0.85rem;">A masterpiece of Indo-Saracenic architecture blending Mughal, Gothic, and Arabesque styles. Its monumental facade and grand arches provide a culturally rich setting for high-concept fashion storytelling.</div>
-        </div>
-      </div>
-    </div>
-  </details>
+  </div>
 </section>
 
 <!-- SLIDE 5: EXECUTION -->
@@ -390,8 +328,12 @@
 <section class="slide" id="slide-7" style="align-items: center; text-align: center;">
   <div class="slide-tag" style="justify-content:center;">07 — Proposal</div>
   <h2 class="slide-heading">Let's Weave the<br><em>Future Together</em></h2>
-  <p class="slide-body" style="max-width: 600px; margin: 0 auto;">
+  <p class="slide-body" style="max-width: 600px; margin: 0 auto 1.5rem;">
     Partner with our expert event management team to showcase Jharkhand's textile heritage to the world. We are ready to bring the JHARCRAFT Runway 2026 to life.
+  </p>
+  
+  <p class="slide-body" style="color: var(--gold); font-family: 'Cinzel', serif; letter-spacing: 0.2em; margin-bottom: 2rem;">
+    PROPOSED DATE: FRIDAY, 17 JULY, 2026
   </p>
 
   <div style="max-width: 640px; margin: 0 auto 2rem; padding: 1.5rem 2rem; border: 1px solid rgba(201,168,76,0.3); background: rgba(201,168,76,0.04); text-align: center;">
