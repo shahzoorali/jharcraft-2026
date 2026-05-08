@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JHARCRAFT Runway: Weaving the Future | 2026</title>
+<meta name="description" content="A premium proposal for the Government of Jharkhand to elevate JHARCRAFT onto the global fashion stage.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;700;900&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8D5A3;
+    --obsidian: #0D0B08;
+    --deep: #1A1510;
+    --mid: #2C2419;
+    --cream: #F7F0E3;
+    --muted: #BDB096;
+    --emerald: #0A1C15; /* Added a deep green for Jharkhand forests */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+  body { background: var(--obsidian); color: var(--cream); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; }
+  img { max-width: 100%; height: auto; display: block; }
+
+  /* ── NAV ── */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3rem; background: rgba(13, 11, 8, 0.7); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(201,168,76,0.15); }
+  .nav-logo { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; }
+  .nav-dots { display: flex; gap: 0.6rem; align-items: center; }
+  .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); cursor: pointer; transition: all 0.3s; border: none; padding: 0; }
+  .nav-dot.active { background: var(--gold); transform: scale(1.4); }
+
+  /* ── SLIDE BASE ── */
+  .slide { min-height: 100vh; scroll-snap-align: start; position: relative; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 6rem 5rem; }
+  
+  .split-layout { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; position: absolute; inset: 0; }
+  .split-image { position: relative; overflow: hidden; height: 100%; }
+  .split-image img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7) sepia(0.2); transition: transform 8s ease; }
+  .split-image:hover img { transform: scale(1.05); }
+  .split-image-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 50%, var(--obsidian) 100%); }
+  .split-content { padding: 6rem 5rem; display: flex; flex-direction: column; justify-content: center; background: var(--obsidian); z-index: 2; position: relative;}
+
+  .slide-tag { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.5em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .slide-tag::before { content: ''; display: block; width: 30px; height: 1px; background: var(--gold); }
+  .slide-heading { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--cream); margin-bottom: 1.5rem; text-transform: uppercase;}
+  .slide-heading em { font-style: italic; color: var(--gold); font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 1.1em; text-transform: none; }
+  .slide-body { font-size: 1.15rem; line-height: 1.9; color: var(--muted); margin-bottom: 2rem; font-weight: 300; }
+
+  /* ── CUSTOM CLASSES ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  
+  .card { background: rgba(26,21,16,0.6); border: 1px solid rgba(201,168,76,0.15); padding: 2rem; transition: all 0.3s; position: relative; overflow: hidden; }
+  .card:hover { border-color: var(--gold); transform: translateY(-5px); background: rgba(201,168,76,0.05); }
+  .card-img-wrap { width: 100%; height: 250px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid rgba(201,168,76,0.2); }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform 0.5s; filter: grayscale(0.2); }
+  .card:hover .card-img-wrap img { transform: scale(1.1); filter: grayscale(0); }
+  
+  .card-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase; }
+  .card-desc { font-size: 1rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── COVER ── */
+  #slide-0 { padding: 0; align-items: center; text-align: center; justify-content: center; }
+  .cover-bg { position: absolute; inset: 0; background-image: url('jharcraft-cover.png'); background-size: cover; background-position: center; filter: brightness(0.3) saturate(0.8); }
+  .cover-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 0%, var(--emerald) 150%); }
+  .cover-content { position: relative; z-index: 2; max-width: 900px; }
+  .cover-title { font-family: 'Cinzel', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 900; line-height: 1.1; color: var(--cream); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .cover-subtitle { font-size: 1.4rem; color: var(--gold-light); font-style: italic; letter-spacing: 0.05em; }
+  .cover-meta { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-top: 3rem; }
+
+  /* ── VISIONARY SPOTLIGHT (Slide 7) ── */
+  .visionary-layout { display: grid; grid-template-columns: 1fr 1.4fr; min-height: 100vh; gap: 0; position: absolute; inset: 0;}
+  .visionary-portrait { position: relative; overflow: hidden; }
+  .visionary-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; filter: sepia(0.15) saturate(1.1) brightness(0.85); transition: transform 8s ease; }
+  .visionary-portrait:hover img { transform: scale(1.05); }
+  .visionary-portrait-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 50%, var(--deep) 100%), linear-gradient(to bottom, transparent 40%, rgba(13,11,8,0.7)); }
+  .visionary-name-plate { position: absolute; bottom: 2.5rem; left: 2rem; z-index: 2; }
+  .visionary-name-plate h3 { font-family: 'Cinzel', serif; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; color: var(--cream); text-transform: uppercase; letter-spacing: 0.08em; line-height: 1.2; }
+  .visionary-name-plate .vn-role { font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.35em; color: var(--gold); text-transform: uppercase; margin-top: 0.5rem; }
+  .visionary-content { padding: 6rem 4rem 4rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--deep); position: relative; overflow-y: auto; z-index: 2;}
+
+  .credential-section { margin-bottom: 2.5rem; }
+  .credential-label { font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.4em; color: var(--gold); text-transform: uppercase; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .credential-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--gold); }
+  .award-list { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .award-list li { padding: 0.45rem 1.1rem; border: 1px solid rgba(201,168,76,0.3); font-size: 0.85rem; color: var(--gold-light); letter-spacing: 0.06em; font-family: 'Inter', sans-serif; font-weight: 300; background: rgba(201,168,76,0.04); }
+  
+  .runway-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .runway-card { padding: 1.2rem 1.4rem; border: 1px solid rgba(201,168,76,0.12); background: rgba(13,11,8,0.4); }
+  .runway-card .rc-brand { font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--cream); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+  .runway-card .rc-detail { font-size: 0.8rem; color: var(--muted); font-family: 'Inter', sans-serif; font-weight: 300; }
+
+  /* ── CTA BUTTON ── */
+  .cta-button { display: inline-block; margin-top: 2rem; padding: 1.1rem 3.5rem; border: 1px solid var(--gold); font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.4em; color: var(--gold); text-decoration: none; text-transform: uppercase; transition: all 0.4s; background: transparent; cursor: pointer; }
+  .cta-button:hover { background-color: var(--gold); color: var(--obsidian); }
+
+  @media (max-width: 1024px) {
+    .split-layout, .visionary-layout { grid-template-columns: 1fr; position: relative; min-height: auto;}
+    .split-image, .visionary-portrait { height: 40vh; }
+    .split-content, .visionary-content { padding: 4rem 2rem; }
+    .slide { padding: 4rem 2rem; height: auto; }
+  }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4, .runway-grid { grid-template-columns: 1fr; }
+    .cover-title { font-size: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">JHARCRAFT × 2026</div>
+  <div class="nav-dots" id="navDots"></div>
+</nav>
+
+<!-- SLIDE 0: COVER -->
+<section class="slide" id="slide-0">
+  <div class="cover-bg"></div>
+  <div class="cover-overlay"></div>
+  <div class="cover-content">
+    <div class="cover-meta" style="margin-top:0; margin-bottom:2rem;">A Proposal for the Government of Jharkhand</div>
+    <h1 class="cover-title">JHARCRAFT Runway<br>Weaving the Future</h1>
+    <div style="width: 100px; height: 1px; background: var(--gold); margin: 2rem auto;"></div>
+    <p class="cover-subtitle">Elevating Jharkhand's Tussar Silk onto the Global Womenswear Stage</p>
+    <div class="cover-meta">Ranchi · 2026 · Exclusive 1-Day Showcase</div>
+  </div>
+</section>
+
+<!-- SLIDE 1: THE HERITAGE -->
+<section class="slide" id="slide-1" style="padding:0;">
+  <div class="split-layout">
+    <div class="split-image">
+      <img src="tussar-weaving.png" alt="Tussar Silk Weaving">
+      <div class="split-image-overlay"></div>
+    </div>
+    <div class="split-content">
+      <div class="slide-tag">01 — The Heritage</div>
+      <h2 class="slide-heading">The Loom<br><em>& The Legacy</em></h2>
+      <p class="slide-body">
+        Jharkhand is the soul of India's "Ahimsa" Tussar Silk. JHARCRAFT's mission to empower rural artisans and weavers has preserved centuries-old traditions of organic silk farming, Kantha stitching, and tribal hand-painting.
+      </p>
+      <p class="slide-body">
+        It is time to transition these exquisite textiles from regional handicrafts to high-fashion global womenswear. We propose a platform that bridges traditional weavers with elite fashion consumers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 2: THE EVENT -->
+<section class="slide" id="slide-2">
+  <div class="slide-tag" style="justify-content:center; text-align:center;">02 — The Concept</div>
+  <h2 class="slide-heading" style="text-align:center;">A 1-Day Immersive<br><em>Womenswear Showcase</em></h2>
+  <p class="slide-body" style="text-align:center; max-width: 800px; margin: 0 auto 3rem;">
+    An exclusive, highly curated 1-day fashion event in Ranchi, designed to spotlight JHARCRAFT's handloom textiles through the lens of modern womenswear. Attended by national press, buyers, and high-net-worth individuals.
+  </p>
+  
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">Artisan Meets Designer</div>
+      <div class="card-desc">Collaborative collections where top national designers use JHARCRAFT's Tussar silk to create contemporary womenswear silhouettes.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Live Craft Exhibitions</div>
+      <div class="card-desc">Interactive zones demonstrating the journey of Tussar silk, Dhokra casting, and Paitkar painting during the event.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Global B2B Networking</div>
+      <div class="card-desc">Facilitated buying sessions connecting JHARCRAFT clusters directly with luxury retail buyers and boutique owners.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 3: TARGET DESIGNERS -->
+<section class="slide" id="slide-3">
+  <div class="slide-tag">03 — Creative Partners</div>
+  <h2 class="slide-heading">Proposed Target<br><em>Designers</em></h2>
+  <p class="slide-body" style="max-width: 800px; margin-bottom: 3rem;">
+    We will invite visionary Indian designers known for their commitment to sustainable fashion and handloom revival to collaborate with JHARCRAFT weavers.
+  </p>
+
+  <div class="grid-4">
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period2/2017/12/09/Photos/Processed/ant-khgD--621x414@LiveMint.jpg" alt="Abraham & Thakore — Minimalist Tussar Silk Style"></div>
+      <div class="card-title" style="font-size:1rem;">Abraham & Thakore</div>
+      <div class="card-desc" style="font-size:0.85rem;">Masters of minimalist sustainable fashion, ideal for translating Tussar silk into modern, quiet luxury.</div>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="https://static.fibre2fashion.com/InterviewResources/UserImages/3360/Anju-modi.jpg" alt="Anju Modi — Heritage Couture Style"></div>
+      <div class="card-title" style="font-size:1rem;">Anju Modi</div>
+      <div class="card-desc" style="font-size:0.85rem;">Renowned for reviving traditional crafts and creating intricate, heritage-inspired couture womenswear.</div>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="https://images.forbesindia.com/blog/wp-content/uploads/media/images/2021/Feb/img_154363_karantorani.jpg" alt="Torani — Youthful Indian Textile Style"></div>
+      <div class="card-title" style="font-size:1rem;">Torani</div>
+      <div class="card-desc" style="font-size:0.85rem;">Bringing a youthful, nostalgic charm to Indian textiles, perfect for introducing JHARCRAFT to a younger luxury demographic.</div>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="https://akm-img-a-in.tosshub.com/lingo/hrb/images/story/202311/untitled_design_-_2023-11-22t094956.407-sixteen_nine.png" alt="Urvashi Kaur — Mindful Indigenous Weave Style"></div>
+      <div class="card-title" style="font-size:1rem;">Urvashi Kaur</div>
+      <div class="card-desc" style="font-size:0.85rem;">A pioneer of mindful fashion, utilizing indigenous weaves to create relaxed, globally appealing apparel.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 4: VENUES -->
+<section class="slide" id="slide-4">
+  <div class="slide-tag">04 — The Stage</div>
+  <h2 class="slide-heading">Iconic Ranchi<br><em>Venues</em></h2>
+  <p class="slide-body" style="max-width: 800px; margin-bottom: 3rem;">
+    Moving away from sterile convention halls, we propose hosting the runway against the dramatic backdrop of Ranchi's heritage and natural landmarks.
+  </p>
+
+  <div class="grid-3">
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="venue-jagannath.png" alt="Jagannath Temple Ranchi"></div>
+      <div class="card-title" style="font-size:1rem;">Jagannath Temple Complex</div>
+      <div class="card-desc" style="font-size:0.85rem;">A 17th-century hilltop temple offering a majestic, spiritual backdrop for a heritage-focused runway.</div>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="venue-tagore.png" alt="Tagore Hill Ranchi"></div>
+      <div class="card-title" style="font-size:1rem;">Tagore Hill</div>
+      <div class="card-desc" style="font-size:0.85rem;">A cultural landmark associated with Rabindranath Tagore, providing panoramic sunset views for an elite evening show.</div>
+    </div>
+    <div class="card" style="padding:1rem;">
+      <div class="card-img-wrap"><img src="venue-hundru.png" alt="Hundru Falls Jharkhand"></div>
+      <div class="card-title" style="font-size:1rem;">Hundru Falls Ecosystem</div>
+      <div class="card-desc" style="font-size:0.85rem;">An avant-garde natural setting, aligning perfectly with the organic, Ahimsa nature of JHARCRAFT's silk.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 5: EXECUTION -->
+<section class="slide" id="slide-5">
+  <div class="slide-tag" style="justify-content:center; text-align:center;">05 — Our Services</div>
+  <h2 class="slide-heading" style="text-align:center;">End-to-End<br><em>Event Management</em></h2>
+  <p class="slide-body" style="text-align:center; max-width: 800px; margin: 0 auto 3rem;">
+    We provide comprehensive turnkey solutions for the Government of Jharkhand, ensuring a flawless execution of the JHARCRAFT Runway 2026.
+  </p>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-title">Production & Design</div>
+      <ul style="color:var(--muted); margin-left: 1.5rem; line-height: 1.8;">
+        <li>Custom runway architecture</li>
+        <li>Thematic lighting & sound</li>
+        <li>Heritage venue permissions</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Designer & Talent Management</div>
+      <ul style="color:var(--muted); margin-left: 1.5rem; line-height: 1.8;">
+        <li>Onboarding national designers</li>
+        <li>Casting top fashion models</li>
+        <li>Backstage coordination</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">PR & Guest Experience</div>
+      <ul style="color:var(--muted); margin-left: 1.5rem; line-height: 1.8;">
+        <li>National fashion media invites</li>
+        <li>VIP & Government hospitality</li>
+        <li>Buyer & retail networking</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 6: THE VISIONARY -->
+<section class="slide" id="slide-6" style="padding:0;">
+  <div class="visionary-layout">
+    <div class="visionary-portrait">
+      <img src="sonalika-sahay.png" alt="Sonalika Sahay — Fashion Model & Choreographer">
+      <div class="visionary-portrait-overlay"></div>
+      <div class="visionary-name-plate">
+        <h3>Sonalika Sahay</h3>
+        <div class="vn-role">Fashion Model · Choreographer · Show Director</div>
+      </div>
+    </div>
+    <div class="visionary-content">
+      <div class="slide-tag">06 — The Visionary</div>
+      <h2 class="slide-heading">The Face Behind<br><em>The Runway</em></h2>
+      <p class="slide-body" style="margin-bottom:1.5rem;">
+        A supermodel who has graced the world's most prestigious runways and a choreographer who has shaped how India walks on the global stage. Sonalika Sahay brings an unmatched fusion of international experience, industry authority, and creative vision to direct the JHARCRAFT Runway 2026.
+      </p>
+
+      <div class="credential-section">
+        <div class="credential-label">Awards & Recognition</div>
+        <ul class="award-list">
+          <li>FDCI Model of the Year</li>
+          <li>F-Award — Face of the Year</li>
+          <li>Face of Dior Watches</li>
+          <li>Elite Models Winner</li>
+        </ul>
+      </div>
+
+      <div class="credential-section">
+        <div class="credential-label">International Runway Experience</div>
+        <div class="runway-grid">
+          <div class="runway-card">
+            <div class="rc-brand">Gianfranco Ferré</div>
+            <div class="rc-detail">Milan Fashion Week</div>
+          </div>
+          <div class="runway-card">
+            <div class="rc-brand">Dior</div>
+            <div class="rc-detail">Global Campaign & Runway</div>
+          </div>
+          <div class="runway-card">
+            <div class="rc-brand">Trussardi</div>
+            <div class="rc-detail">International Shows</div>
+          </div>
+          <div class="runway-card">
+            <div class="rc-brand">Benetton India FW</div>
+            <div class="rc-detail">Multiple Seasons</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="credential-section">
+        <div class="credential-label">Core Expertise</div>
+        <div class="award-list">
+          <li style="border-color:var(--gold); background:transparent;">Show Choreography</li>
+          <li style="border-color:var(--gold); background:transparent;">Fashion Direction</li>
+          <li style="border-color:var(--gold); background:transparent;">Model Training</li>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLIDE 7: CTA -->
+<section class="slide" id="slide-7" style="align-items: center; text-align: center;">
+  <div class="slide-tag" style="justify-content:center;">07 — Proposal</div>
+  <h2 class="slide-heading">Let's Weave the<br><em>Future Together</em></h2>
+  <p class="slide-body" style="max-width: 600px; margin: 0 auto;">
+    Partner with our expert event management team to showcase Jharkhand's textile heritage to the world. We are ready to bring the JHARCRAFT Runway 2026 to life.
+  </p>
+  <button class="cta-button" onclick="document.getElementById('slide-0').scrollIntoView({behavior:'smooth'})">Back to Top</button>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const navDots = document.getElementById('navDots');
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => slides[i].scrollIntoView({ behavior: 'smooth' }));
+    navDots.appendChild(dot);
+  });
+
+  window.addEventListener('scroll', () => {
+    let current = 0;
+    slides.forEach((slide, i) => {
+      const top = slide.getBoundingClientRect().top;
+      if (top < window.innerHeight / 2) current = i;
+    });
+    
+    document.querySelectorAll('.nav-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+  });
+</script>
+
+</body>
+</html>
